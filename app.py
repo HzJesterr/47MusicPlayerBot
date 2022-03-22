@@ -63,14 +63,33 @@ OWNER_ID = int(os.environ["OWNER_ID"])
 LIVE_CHATS = []
 
 START_TEXT = """
-Hi <b>{}</b> 👋
+Merhaba <b>{}</b> 👋
 
 Telegram grup sesli sohbetlerinde müzik çalabilir ve video akışı yapabilirim. 
 
 Komutları ve nasıl kullanıldığı hakkında bilgi almak için /help komutunu kullanın..
 """
 
-HELP_TEXT = 
+HELP_TEXT = """
+Yeniden merhaba <b>{}</b> ✋ 
+
+Öncelikle gruba botu ve asistanı ekleyip yetki vermelisiniz daha sonra ise komutlar aşağıdaki gibidir.
+
+**💨/play (şarkı ismi/linki):** İstediğiniz şarkıyı oynatmanızı sağlar.
+**💨/vplay (video ismi/linki):** İstediğiniz YouTube videosunu oynatmanızı sağlar.
+**💨/saudio (ses linki):** İstediğiniz Canlı Youtube videosunun sesini oynatmanızı sağlar.
+**💨/svideo (video linki):** İstediğiniz canlı YouTube videosunu oynatmanızı sağlar.
+**💨/queue :** Akış sırasını gösterir.
+**💨/skip :** akıştaki bir sonraki sarkıya/videoya atlar.
+**💨/pause :** akışı durdurur.
+**💨/resume :** Akışı devam ettirir.
+**💨/mute :** Userbotu susturur.
+**💨/unmute :** Userbotun sesini açar.
+**💨/stop :** Akışı sonlandırır.
+**💨/restart :** Botu yeniden başlatır.
+"""
+
+
 START_BUTTONS = InlineKeyboardMarkup(
     [
         [
