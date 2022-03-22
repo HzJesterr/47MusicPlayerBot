@@ -65,16 +65,17 @@ LIVE_CHATS = []
 START_TEXT = """
 Hi <b>{}</b> 👋
 
-I can play music & stream videos in Telegram group voice chats. 
+Telegram grup sesli sohbetlerinde müzik çalabilir ve video akışı yapabilirim. 
 
-Make your own bot using below source code.
+Komutları ve nasıl kullanıldığı hakkında bilgi almak için /help komutunu kullanın..
 """
 
+HELP_TEXT = 
 START_BUTTONS = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton("📨 Support", url="https://t.me/JaguarBots"),
-            InlineKeyboardButton("📚 Source Code", url="https://github.com/ImJanindu/47MusicPlayerBot")
+            InlineKeyboardButton("📨 Destek", url="https://t.me/zmonios"),
+            InlineKeyboardButton("📚 Sahibim ", url="https://t.me/sarikola")
         ]
     ]
 )
@@ -131,7 +132,7 @@ async def skip_current_song(chat_id):
                 )
             pop_an_item(chat_id)
             await bot.send_photo(chat_id, photo = thumb,
-                                 caption = f"▶️ <b>Now playing:</b> [{title}]({link}) | `{type}` \n\n⏳ <b>Duration:</b> {duration}",
+                                 caption = f"▶️ <b>Şimdi Oynuyor:</b> [{title}]({link}) | `{type}` \n\n⏳ <b>Süre:</b> {duration}",
                                  reply_markup = BUTTONS)
             return [title, link, type, duration, thumb]
     else:
@@ -269,6 +270,11 @@ async def start_private(_, message):
     msg = START_TEXT.format(message.from_user.mention)
     await message.reply_text(text = msg,
                              reply_markup = START_BUTTONS)
+
+@bot.on_message(filters.command("help") & filters.private)
+async def start_private(_, message):
+    msg = HELP_TEXT.format(message.from_user.mention)
+    await message.reply_text(text = msg)
     
 
 @bot.on_message(filters.command("start") & filters.group)
